@@ -3,10 +3,11 @@ const url = require('url');
 
 const server = http.createServer((req, res) => {
     let pathname = url.parse(req.url).pathname;
+    let method = req.method;
     console.log(pathname);
 
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(`<h1>${pathname}</h1>`);
+    // res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(`<h1>${method}: ${pathname}</h1>`);
 });
 
 server.listen(3000, () => {
